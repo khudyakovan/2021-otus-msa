@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+  health:
+    image: lekseich/homework-01
+    container_name: homework-01
+    build: ./
+    ports:
+      - 8000:8000
