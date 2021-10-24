@@ -1,0 +1,11 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: metrics, health, logfile
+
+server:
+  port: 8000
