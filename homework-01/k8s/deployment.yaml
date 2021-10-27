@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homework01-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: homework01
+  template:
+    metadata:
+      labels:
+        component: homework01
+    spec:
+      containers:
+        - name: homework-01
+          image: lekseich/homework-01:latest
+          ports:
+            - containerPort: 8000
+          readinessProbe:
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            timeoutSeconds: 5
+            httpGet:
+              scheme: HTTP
+              path: /health
+              port: 8000
