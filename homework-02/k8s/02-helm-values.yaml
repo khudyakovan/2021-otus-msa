@@ -1,0 +1,10 @@
+auth:
+  database: hw02-database
+  existingSecret: hw02-secret
+
+primary:
+  persistence:
+    existingClaim: mysql-pv-claim
+
+volumePermissions:
+  enabled: true
