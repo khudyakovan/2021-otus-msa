@@ -2,8 +2,22 @@ version: "3.7"
 
 services:
   health:
-    image: lekseich/homework-01
-    container_name: homework-01
+    image: lekseich/homework-02
+    container_name: homework-02
     build: ./
     ports:
       - 8000:8000
+
+  database:
+    image: mariadb
+    container_name: hw02-database
+    restart: always
+    volumes:
+      - /tmp/docker_db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: strongpassword
+      MYSQL_DATABASE: library
+      MYSQL_USER: otus
+      MYSQL_PASSWORD: javaclub
+    ports:
+      - "3306:3306"
