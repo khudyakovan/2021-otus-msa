@@ -18,3 +18,7 @@ Ingress-ы должны также вести на url arch.homework (как и 
 - Postman коллекция, в которой будут представлены примеры запросов к сервису на создание, получение, изменение и удаление пользователя. </br><b>Важно:</b> в postman коллекции использовать базовый url - arch.homework
 
 Задание со звездочкой: +5 балла за шаблонизацию приложения в helm чартах
+
+Установка
+00. 
+02. helm install hw02db bitnami/mysql --values ./git-repo/2021-otus-msa/homework-02/k8s/02-helm-values.yaml
