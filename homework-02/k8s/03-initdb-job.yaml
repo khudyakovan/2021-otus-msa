@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: populate-db
+spec:
+  template:
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: populate-db
+          image: bitnami/mysql:8.0.27-debian-10-r8
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hw02-secret
+                  key: mysql-root-password
+          command:
+            - /bin/sh
+            - "-c"
+            - |
+              mysql --host=hw02db-mysql -uroot -pverystrongpassword hw02-database <<'EOF'
+                create table tbl_users (id int NOT NULL AUTO_INCREMENT PRIMARY KEY, login varchar(255) not null, password varchar(255) not null, full_name varchar(255) null);
+                insert into b_user (login, password,full_name) values ('root', 'verystrongpassword', 'root');
+                insert into b_user (login, password,full_name) values ('user', 'password', 'User');
+              EOF
+  backoffLimit: 5
