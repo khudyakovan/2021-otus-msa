@@ -5,7 +5,7 @@ metadata:
 data:
   dev-config.json:
     '{
-      "hw02.datasource.url": "jdbc:mysql://localhost/hw02-database?serverTimezone=Europe/Moscow",
+      "hw02.datasource.url": "jdbc:mysql://hw02db-mysql/hw02-database?serverTimezone=Europe/Moscow",
       "hw02.datasource.username": "dbuser",
       "hw02.datasource.password": "strongpassword"
      }'
