@@ -24,4 +24,4 @@ spec:
                 insert into `tbl_users` (login, password,full_name) values ('root', 'verystrongpassword', 'root');
                 insert into `tbl_users` (login, password,full_name) values ('user', 'password', 'User');
               EOF
-  backoffLimit: 0
+  backoffLimit: 10

@@ -11,7 +11,7 @@ kubectl apply -f ./k8s/00-secret.yaml
 kubectl apply -f ./k8s/01-mysql-pv.yaml
 
 3. Установить базу данных
-helm install hw02db bitnami/mysql -f ./k8s/02-helm-values.yaml
+helm install hw02db bitnami/mysql -f ./helm/02-helm-values.yaml
 
 4. Запустить миграцию данных
 kubectl apply -f ./k8s/03-initdb-job.yaml
