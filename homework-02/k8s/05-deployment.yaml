@@ -22,5 +22,10 @@ spec:
                 configMapKeyRef:
                   name: spring-config
                   key: dev-config.json
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hw02-secret
+                  key: mysql-password
           ports:
             - containerPort: 8000
