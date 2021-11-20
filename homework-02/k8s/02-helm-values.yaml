@@ -1,5 +1,6 @@
 auth:
   database: hw02-database
+  username: dbuser
   existingSecret: hw02-secret
 
 primary:

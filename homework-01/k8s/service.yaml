@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: homework01-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     component: homework01
   ports:
     - protocol: TCP
-      port: 8081
+      port: 8000

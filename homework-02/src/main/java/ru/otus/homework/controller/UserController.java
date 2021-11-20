@@ -16,6 +16,11 @@ public class UserController {
     private final UserService userService;
     private static final String URI = "/api/v1/users";
 
+    @GetMapping(URI)
+    public List<User> getUsers(){
+        return userService.findAll();
+    }
+
     //C - Create
     @PostMapping(URI)
     public User create(@RequestBody User user){
@@ -28,13 +33,8 @@ public class UserController {
         return userService.findUserById(id);
     }
 
-    @GetMapping(URI)
-    public List<User> getUsers(){
-        return userService.findAll();
-    }
-
     //U - Update
-    @PutMapping(URI)
+    @PutMapping(path = URI + "/{id}")
     public User update(@PathVariable("id") long id){
         return userService.findUserById(id);
     }
