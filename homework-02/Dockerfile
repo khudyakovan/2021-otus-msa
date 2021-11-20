@@ -23,4 +23,4 @@ RUN git init && \
     mv ./target/homework-*.jar /opt/homework-02/hw02-service.jar
 
 #Запуск сервиса
-ENTRYPOINT ["java","-jar","/opt/homework-01/hw02-service.jar"]
+ENTRYPOINT ["java","-jar","/opt/homework-02/hw02-service.jar"]

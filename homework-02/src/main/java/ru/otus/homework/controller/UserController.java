@@ -34,9 +34,9 @@ public class UserController {
     }
 
     //U - Update
-    @PutMapping(path = URI + "/{id}")
-    public User update(@PathVariable("id") long id){
-        return userService.findUserById(id);
+    @PutMapping(URI)
+    public User update(@RequestBody User user){
+        return userService.save(user);
     }
 
     //D - Delete
