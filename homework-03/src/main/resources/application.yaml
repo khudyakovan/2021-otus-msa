@@ -1,0 +1,35 @@
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: metrics, health, logfile, prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/hw03-database?serverTimezone=Europe/Moscow
+    #url: ${hw03.datasource.url}
+    username: dbuser
+    #username: ${hw03.datasource.username}
+    password: strongpassword
+    #password: ${hw03.datasource.password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: never
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    open-in-view: true
+
+server:
+  port: 8000

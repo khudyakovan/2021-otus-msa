@@ -1,0 +1,11 @@
+auth:
+  database: hw03-database
+  username: dbuser
+  existingSecret: hw03-secret
+
+primary:
+  persistence:
+    existingClaim: mysql-pv-claim
+
+volumePermissions:
+  enabled: true
