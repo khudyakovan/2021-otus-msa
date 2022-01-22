@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-config
+data:
+  dev-config.json:
+    '{
+      "hw03.datasource.url": "jdbc:mysql://hw03db-mysql/hw03-database?serverTimezone=Europe/Moscow",
+      "hw03.datasource.username": "dbuser"
+     }'

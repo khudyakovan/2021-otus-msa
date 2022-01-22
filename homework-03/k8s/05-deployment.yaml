@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homework03-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: homework03
+  template:
+    metadata:
+      labels:
+        component: homework03
+    spec:
+      containers:
+        - name: homework-03
+          image: lekseich/homework-03:latest
+          imagePullPolicy: Always
+          env:
+            - name: SPRING_APPLICATION_JSON
+              valueFrom:
+                configMapKeyRef:
+                  name: spring-config
+                  key: dev-config.json
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hw03-secret
+                  key: mysql-password
+          ports:
+            - containerPort: 8000
